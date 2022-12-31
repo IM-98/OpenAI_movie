@@ -4,11 +4,12 @@ import "./form.css"
 
 interface Movie {
 
-    Actors: string,
-    Director: string,
-    Plot: string,
-    Poster: string
-    Title: string
+    data: {
+        Actors: string
+        Plot:string
+        Poster:string
+        Title:string
+    }
 
 }
 
@@ -54,7 +55,7 @@ const Form: React.FC = () => {
     const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
         const question = generatedPromptByStyleAndEras(selectedEra, selectedCategory);
-        
+
 
         const data = {
             prompt: question,
@@ -62,10 +63,11 @@ const Form: React.FC = () => {
             model: "text-davinci-003"
         }
 
-        axios.post("https://openai-moviejs.netlify.app/.netlify/functions/handleSubmit", data)
+        axios.post("http://localhost:8888/.netlify/functions/handleSubmit", data)
             .then((res) => {
                 handleResponse(res.data);
-            })
+
+            }).then(() => console.log(movieData?.data))
             .catch((err) => {
                 console.error(err);
             });
@@ -114,10 +116,11 @@ const Form: React.FC = () => {
 
             {movieData && (
                 <div className='movie__card'>
-                    <h2> {movieData.Title}</h2>
-                    <p>Synopsis : {movieData.Plot} </p>
-                    <img src={movieData.Poster} alt="movie poster"/>
-                </div>)}
+                    <h2> {movieData.data.Title}</h2>
+                    <p>Synopsis : {movieData.data.Plot} </p>
+                    <img src={movieData.data.Poster} alt="movie poster" />
+                </div>
+            )}
         </>
     );
 };

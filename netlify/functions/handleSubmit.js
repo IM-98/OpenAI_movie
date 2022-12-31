@@ -16,7 +16,7 @@ exports.handler = (event, context, callback) => {
   axios.post(`https://api.openai.com/v1/completions`, data, headers)
     
   .then(res => {
-    console.log(res)
+    
       let titres;
       titres = res.data.choices[0].text;
 
@@ -24,6 +24,7 @@ exports.handler = (event, context, callback) => {
       axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_OMDB}&t=${titres}`)
         
       .then(res => {
+          console.log(res.data)
           callback(null, {
             statusCode: 200,
             body: JSON.stringify({ data: res.data })
