@@ -51,17 +51,9 @@ const Form: React.FC = () => {
         setMovieData(data);
     }
 
-    const handleSubmit = (event: React.SyntheticEvent) => {
+    const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
-        const target = event.target as typeof event.target & {
-            selectedEra: { value: string };
-            selectedCategory: { value: string };
-        }
-        const selectedEra1 = target.selectedEra.value; 
-        const selectedCategory1 = target.selectedCategory.value;
-
-        let question = generatedPromptByStyleAndEras(selectedEra1, selectedCategory1);
+        const question = generatedPromptByStyleAndEras(selectedEra, selectedCategory);
         
 
         const data = {
