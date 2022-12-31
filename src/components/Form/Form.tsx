@@ -63,7 +63,7 @@ const Form: React.FC = () => {
             model: "text-davinci-003"
         }
 
-        axios.post("http://localhost:8888/.netlify/functions/handleSubmit", data)
+        axios.post("https://openai-moviejs.netlify.app/.netlify/functions/handleSubmit", data)
             .then((res) => {
                 handleResponse(res.data);
 
