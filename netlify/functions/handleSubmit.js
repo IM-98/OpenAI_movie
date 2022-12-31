@@ -16,6 +16,7 @@ exports.handler = (event, context, callback) => {
   axios.post(`https://api.openai.com/v1/completions`, data, headers)
     
   .then(res => {
+    console.log(res)
       let titres;
       titres = res.data.choices[0].text;
 
