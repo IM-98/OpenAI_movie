@@ -1,0 +1,60 @@
+h1 {
+  margin: 0;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  background-color: #444444;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  background-color: #00b8d4;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0052cc;
+}
+
+.movie__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+p{
+  text-align: center;
+}
